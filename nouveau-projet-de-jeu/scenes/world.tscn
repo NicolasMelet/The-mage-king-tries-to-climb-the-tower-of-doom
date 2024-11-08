@@ -1,24 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://do001ywmxewo0"]
+[gd_scene load_steps=7 format=3 uid="uid://do001ywmxewo0"]
 
 [ext_resource type="PackedScene" uid="uid://biw3hms7eupho" path="res://scenes/player.tscn" id="1_8v77d"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_avpcv"]
-size = Vector2(1000, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nve4x"]
-size = Vector2(1002, 99)
+[ext_resource type="PackedScene" uid="uid://vjcioceflypc" path="res://scenes/Platform.tscn" id="2_osg0a"]
+[ext_resource type="PackedScene" uid="uid://bn566l83jcrmv" path="res://scenes/Maison.tscn" id="3_q5tfa"]
+[ext_resource type="PackedScene" uid="uid://c0n6rxixqhycj" path="res://scenes/MurInvisible.tscn" id="4_kcikt"]
+[ext_resource type="PackedScene" uid="uid://cjjhugk1wq52g" path="res://scenes/Arrow.tscn" id="5_kag6i"]
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="6_fol4i"]
 
 [node name="World" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_8v77d")]
+[node name="Arrow" parent="." instance=ExtResource("5_kag6i")]
+position = Vector2(327, 290)
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(0, 500)
+[node name="Player" parent="." groups=["Players"] instance=ExtResource("1_8v77d")]
+position = Vector2(543, 541)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
-position = Vector2(502, 52)
-mesh = SubResource("QuadMesh_avpcv")
+[node name="Platform" parent="." instance=ExtResource("2_osg0a")]
+position = Vector2(100, 682)
+scale = Vector2(1.5, 0.2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(501, 52.5)
-shape = SubResource("RectangleShape2D_nve4x")
+[node name="Maison" parent="." instance=ExtResource("3_q5tfa")]
+position = Vector2(1146, 542)
+scale = Vector2(0.5, 0.5)
+
+[node name="Maison2" parent="." instance=ExtResource("3_q5tfa")]
+position = Vector2(15, 555)
+scale = Vector2(0.5, 0.5)
+
+[node name="Invisible" parent="." instance=ExtResource("4_kcikt")]
+position = Vector2(1169, 180)
+rotation = 1.5708
+scale = Vector2(10, 1)
+
+[node name="Invisible2" parent="." instance=ExtResource("4_kcikt")]
+position = Vector2(167, -323)
+scale = Vector2(20, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 323)
+script = ExtResource("6_fol4i")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjjhugk1wq52g"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hopnr"]
+size = Vector2(1000, 100)
+
+[node name="Arrow" type="StaticBody2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(0.1, 0.4)
+mesh = SubResource("QuadMesh_hopnr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(-37, 18)
+rotation = 0.785398
+scale = Vector2(0.07, 0.2)
+mesh = SubResource("QuadMesh_hopnr")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
+position = Vector2(-38, -18)
+rotation = -0.785398
+scale = Vector2(0.07, 0.2)
+mesh = SubResource("QuadMesh_hopnr")
