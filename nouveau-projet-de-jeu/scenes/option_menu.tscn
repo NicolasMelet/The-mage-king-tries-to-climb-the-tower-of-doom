@@ -1,0 +1,154 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtn4mmkk1xa5w"]
+
+[ext_resource type="Script" path="res://scripts/option_menu.gd" id="1_omcbg"]
+[ext_resource type="Theme" uid="uid://dmwmdqaxdcbhr" path="res://themes/default_theme.tres" id="2_3qihm"]
+[ext_resource type="AudioStream" uid="uid://cnidd1e062d4q" path="res://scenes/monk.mp3" id="3_4mqvd"]
+
+[node name="option_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_omcbg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_3qihm")
+theme_override_constants/separation = 108
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 48
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+structured_text_bidi_override_options = [null]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Sounds" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sounds"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Volume_label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Volume_master" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Mute" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute"
+
+[node name="label_music" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Volume_music" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="label_sfx" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="Volume_sfx" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Graphics"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="FullScreen" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Fullscreen
+"
+
+[node name="Resolutions2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="Resolutions" type="OptionButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+disabled = true
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_1/text = "1600x900"
+popup/item_1/id = 2
+popup/item_2/text = "1280x720"
+popup/item_2/id = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Exit
+"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(160, 220)
+stream = ExtResource("3_4mqvd")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Volume_master" to="." method="_on_volume_master_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Volume_music" to="." method="_on_volume_music_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Volume_sfx" to="." method="_on_volume_sfx_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer/Resolutions" to="." method="_on_resolutions_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Exit" to="." method="_on_exit_pressed"]
