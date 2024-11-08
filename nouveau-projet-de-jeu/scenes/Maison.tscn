@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdbc6dev1wafc"]
+[gd_scene load_steps=2 format=3 uid="uid://bn566l83jcrmv"]
 
-[ext_resource type="PackedScene" uid="uid://tmnskb3ki8t5" path="res://scenes/Platform.tscn" id="1_v3adv"]
+[ext_resource type="PackedScene" uid="uid://vjcioceflypc" path="res://scenes/Platform.tscn" id="1_v3adv"]
 
 [node name="Maison" type="StaticBody2D"]
 

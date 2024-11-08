@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://do001ywmxewo0"]
 
 [ext_resource type="PackedScene" uid="uid://biw3hms7eupho" path="res://scenes/player.tscn" id="1_8v77d"]
-[ext_resource type="PackedScene" uid="uid://tmnskb3ki8t5" path="res://scenes/Platform.tscn" id="2_osg0a"]
-[ext_resource type="PackedScene" uid="uid://cdbc6dev1wafc" path="res://scenes/Maison.tscn" id="3_q5tfa"]
-[ext_resource type="PackedScene" uid="uid://ccscreolja4cw" path="res://scenes/MurInvisible.tscn" id="4_kcikt"]
-[ext_resource type="PackedScene" uid="uid://hl3uk252ktpo" path="res://scenes/Arrow.tscn" id="5_kag6i"]
+[ext_resource type="PackedScene" uid="uid://vjcioceflypc" path="res://scenes/Platform.tscn" id="2_osg0a"]
+[ext_resource type="PackedScene" uid="uid://bn566l83jcrmv" path="res://scenes/Maison.tscn" id="3_q5tfa"]
+[ext_resource type="PackedScene" uid="uid://c0n6rxixqhycj" path="res://scenes/MurInvisible.tscn" id="4_kcikt"]
+[ext_resource type="PackedScene" uid="uid://cjjhugk1wq52g" path="res://scenes/Arrow.tscn" id="5_kag6i"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="6_fol4i"]
 
 [node name="World" type="Node2D"]

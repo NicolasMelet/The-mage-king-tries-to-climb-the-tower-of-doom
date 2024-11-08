@@ -9,7 +9,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var players = get_tree().get_nodes_in_group("Players")
+	
 	for player in players:
-		if player.position.x < position.x:
-			position.x -= limit_right
+		print(player.position)
+		print(limit_right)
+		#if player.position.x < position.x:
+			#position.x -= limit_right
 	pass
