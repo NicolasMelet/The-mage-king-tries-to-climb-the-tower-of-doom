@@ -11,6 +11,23 @@ config_version=5
 [application]
 
 config/name="Nouveau projet de jeu"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
+window/size/mode=3
+window/size/resizable=false
+window/stretch/mode="viewport"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[gui]
+
+theme/custom_font="res://font/Alkhemikal.ttf"

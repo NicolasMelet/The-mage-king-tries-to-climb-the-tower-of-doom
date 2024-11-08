@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dmwmdqaxdcbhr"]
+
+[resource]
+default_font_size = 24
+Button/colors/font_hover_color = Color(0.578049, 0.000242772, 0.578045, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = null
