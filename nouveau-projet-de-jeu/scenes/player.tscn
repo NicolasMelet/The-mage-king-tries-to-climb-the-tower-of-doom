@@ -454,7 +454,7 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_1ww0j")
 one_way_collision_margin = 0.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="CameraVillage" type="Camera2D" parent="."]
 position = Vector2(-6, -176)
 limit_left = -6300
 limit_top = -300
@@ -470,3 +470,8 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 script = ExtResource("3_1samt")
+
+[node name="CameraTower" type="Camera2D" parent="."]
+limit_left = 0
+limit_right = 1100
+limit_bottom = 680

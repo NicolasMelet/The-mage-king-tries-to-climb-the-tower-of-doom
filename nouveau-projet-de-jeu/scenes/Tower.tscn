@@ -1,23 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://delhn0vhy1pid"]
+[gd_scene load_steps=4 format=3 uid="uid://ctogujttuy4tu"]
 
 [ext_resource type="PackedScene" uid="uid://dn1mrdsfbeinl" path="res://scenes/Arrow.tscn" id="1_5mx4r"]
 [ext_resource type="PackedScene" uid="uid://cclb1ed24kxn4" path="res://scenes/Platform.tscn" id="2_4j38g"]
+[ext_resource type="PackedScene" uid="uid://biw3hms7eupho" path="res://scenes/player.tscn" id="3_m74q8"]
 
 [node name="Tower" type="StaticBody2D"]
 
 [node name="Arrow" parent="." instance=ExtResource("1_5mx4r")]
-position = Vector2(541, 418)
+position = Vector2(465, 418)
 rotation = 1.5708
 
-[node name="Platform" parent="." instance=ExtResource("2_4j38g")]
-position = Vector2(540, 862)
+[node name="Ground" parent="." instance=ExtResource("2_4j38g")]
+position = Vector2(483, 862)
 
-[node name="Platform2" parent="." instance=ExtResource("2_4j38g")]
+[node name="RightWall" parent="." instance=ExtResource("2_4j38g")]
 position = Vector2(1085, 290)
 rotation = 1.5708
 scale = Vector2(0.5, 0.2)
 
-[node name="Platform3" parent="." instance=ExtResource("2_4j38g")]
-position = Vector2(-10, 290)
+[node name="LeftWall" parent="." instance=ExtResource("2_4j38g")]
+position = Vector2(-160, 290)
 rotation = 1.5708
 scale = Vector2(0.5, 0.2)
+
+[node name="Player" parent="." instance=ExtResource("3_m74q8")]
+position = Vector2(412, 623)

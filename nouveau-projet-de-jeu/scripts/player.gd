@@ -16,6 +16,10 @@ func player():
 	pass
 
 func _physics_process(delta: float) -> void:
+
+	current_camera()
+
+	# Add the gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -28,15 +32,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	#if velocity:
-		#last_facing_direction = velocity.normalized()
-	#
-	#if last_facing_direction.x > 0:
-		#anim_direction = "right"
-	#elif last_facing_direction.x < 0:
-		#anim_direction = "left"
-	#
-	#if velocity.x != 0:
-		#animation_player.play("walk_" + anim_direction)
-	#else:
-		#animation_player.play("idle_" + anim_direction)
+
+func current_camera():
+	if global.current_scene == "village":
+		$CameraVillage.enabled = true
+		$CameraTower.enabled = false
+	elif global.current_scene == "tower":
+		$CameraVillage.enabled = false
+		$CameraTower.enabled = true
