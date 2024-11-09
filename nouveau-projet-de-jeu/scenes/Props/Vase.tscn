@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8038vql3yl7i"]
+
+[ext_resource type="Texture2D" uid="uid://bhe10fu0v8m5p" path="res://spritesheets/vase.png" id="1_ke3du"]
+
+[node name="Vase" type="RigidBody2D"]
+mass = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ke3du")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5, 22, -18, 7, -18, -3, -12, -9, -7, -11, -7, -13, -14, -19, -11, -22, 10, -22, 13, -19, 6, -13, 6, -11, 10, -9, 16, -4, 16, 8, 4, 22)

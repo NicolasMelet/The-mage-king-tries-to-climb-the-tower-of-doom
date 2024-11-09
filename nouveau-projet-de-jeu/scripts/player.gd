@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -300.0
+@export var push_force = 80.0
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 const FIRE_BALL = preload("res://scenes/fireBall.tscn")
 @onready var AIR_FRICTION = 20
@@ -45,7 +46,11 @@ func _physics_process(delta: float) -> void:
 	energyExplosion = move_toward(energyExplosion, 0, AIR_FRICTION)
 	
 	move_and_slide()
-	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+			
 func gravity(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta

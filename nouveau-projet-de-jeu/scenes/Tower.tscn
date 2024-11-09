@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctogujttuy4tu"]
+
+[gd_scene load_steps=10 format=3 uid="uid://crk6fhq8fs5x1"]
+
 
 [ext_resource type="PackedScene" uid="uid://dn1mrdsfbeinl" path="res://scenes/Arrow.tscn" id="1_5mx4r"]
 [ext_resource type="PackedScene" uid="uid://cclb1ed24kxn4" path="res://scenes/Platform.tscn" id="2_4j38g"]
 [ext_resource type="Texture2D" uid="uid://dvua6x86cergb" path="res://spritesheets/tileset.png" id="3_d376o"]
 [ext_resource type="PackedScene" uid="uid://biw3hms7eupho" path="res://scenes/player.tscn" id="3_m74q8"]
+[ext_resource type="PackedScene" uid="uid://dumwr6gghljrr" path="res://scenes/Props/baril.tscn" id="5_pp5l0"]
+[ext_resource type="PackedScene" uid="uid://cnqukdr83ixl7" path="res://scenes/Props/crate.tscn" id="6_y6srf"]
+[ext_resource type="PackedScene" uid="uid://b8038vql3yl7i" path="res://scenes/Props/Vase.tscn" id="7_1ooku"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6y6u"]
 texture = ExtResource("3_d376o")
@@ -750,6 +755,7 @@ texture = ExtResource("3_d376o")
 sources/0 = SubResource("TileSetAtlasSource_f6y6u")
 
 [node name="Tower" type="StaticBody2D"]
+position = Vector2(-13, 0)
 
 [node name="Arrow" parent="." instance=ExtResource("1_5mx4r")]
 position = Vector2(465, 418)
@@ -776,3 +782,24 @@ layer_0/tile_data = PackedInt32Array(2621504, 65536, 20, 2621503, 65536, 20, 262
 
 [node name="Player" parent="." instance=ExtResource("3_m74q8")]
 position = Vector2(399, 483)
+
+[node name="Baril2" parent="." instance=ExtResource("5_pp5l0")]
+position = Vector2(260, 597)
+
+[node name="Baril" parent="." instance=ExtResource("5_pp5l0")]
+position = Vector2(42, 574)
+
+[node name="Baril3" parent="." instance=ExtResource("5_pp5l0")]
+position = Vector2(736, 624)
+
+[node name="Crate" parent="." instance=ExtResource("6_y6srf")]
+position = Vector2(529, 607)
+
+[node name="Crate2" parent="." instance=ExtResource("6_y6srf")]
+position = Vector2(44, 625)
+
+[node name="Vase" parent="." instance=ExtResource("7_1ooku")]
+position = Vector2(186, 521)
+
+[node name="Vase2" parent="." instance=ExtResource("7_1ooku")]
+position = Vector2(635, 604)

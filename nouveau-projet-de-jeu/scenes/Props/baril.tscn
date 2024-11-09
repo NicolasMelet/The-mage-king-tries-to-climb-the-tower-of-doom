@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dumwr6gghljrr"]
+
+[ext_resource type="Texture2D" uid="uid://c1vnrerxmswvt" path="res://spritesheets/Baril.png" id="1_5j4u7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6a34u"]
+radius = 11.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5ccj"]
+size = Vector2(13, 25.5)
+
+[node name="Baril" type="RigidBody2D"]
+mass = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_5j4u7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_6a34u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_p5ccj")
