@@ -7,5 +7,5 @@ func _physics_process(delta: float) -> void:
 	position += transform.x * FIRE_BALL_SPEED * delta
 
 func _on_body_entered(body: Node) -> void:
-	print("boom")
-	queue_free()
+	if (body.is_in_group("Collide")):
+		queue_free()
