@@ -1,6 +1,7 @@
-extends Camera2D
+extends Node
 
-
+var current_scene = "village"
+var transition_scene = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,11 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#var players = get_tree().get_nodes_in_group("Players")
-	#
-	#for player in players:
-		#print(player.position)
-		#print(limit_right)
-		#if player.position.x < position.x:
-			#position.x -= limit_right
 	pass
+
+func endChangeScene():
+	transition_scene = false

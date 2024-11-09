@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dttxa7ntyokfn"]
+
+[ext_resource type="PackedScene" uid="uid://cclb1ed24kxn4" path="res://scenes/Platform.tscn" id="2_6rkd1"]
+[ext_resource type="PackedScene" uid="uid://cjuobipq7aqaw" path="res://scenes/Maison.tscn" id="3_j8ema"]
+[ext_resource type="PackedScene" uid="uid://fbwa3kdxff4k" path="res://scenes/DecoRectangle.tscn" id="4_fh6cj"]
+[ext_resource type="PackedScene" uid="uid://nmnlt137oj6w" path="res://scenes/MurInvisible.tscn" id="4_lp3g1"]
+
+[node name="Village" type="StaticBody2D"]
+
+[node name="Maison" parent="." instance=ExtResource("3_j8ema")]
+position = Vector2(1146, 542)
+scale = Vector2(0.5, 0.5)
+
+[node name="Maison2" parent="." instance=ExtResource("3_j8ema")]
+position = Vector2(15, 555)
+scale = Vector2(0.5, 0.5)
+
+[node name="Invisible" parent="." instance=ExtResource("4_lp3g1")]
+position = Vector2(1163, -58)
+rotation = 1.5708
+scale = Vector2(15, 1)
+
+[node name="Invisible2" parent="." instance=ExtResource("4_lp3g1")]
+position = Vector2(-2583, -815)
+scale = Vector2(75, 1)
+
+[node name="Platform2" parent="." instance=ExtResource("2_6rkd1")]
+position = Vector2(-649, 425)
+scale = Vector2(0.5, 1)
+
+[node name="Platform3" parent="." instance=ExtResource("2_6rkd1")]
+position = Vector2(-2055, -93)
+rotation = 1.5708
+scale = Vector2(0.3, 0.2)
+
+[node name="DecoRectangle" parent="." instance=ExtResource("4_fh6cj")]
+position = Vector2(-2143, 365)
+rotation = 1.5708
+scale = Vector2(0.55, 1)
+
+[node name="DecoRectangle3" parent="." instance=ExtResource("4_fh6cj")]
+position = Vector2(-2038, 134)
+rotation = 0.436332
+scale = Vector2(0.3, 1)
+
+[node name="Tower" parent="." instance=ExtResource("4_fh6cj")]
+position = Vector2(-5070, -345)
+scale = Vector2(2, 20)
+
+[node name="Invisible3" parent="." instance=ExtResource("4_lp3g1")]
+position = Vector2(-6270, -58)
+rotation = 1.5708
+scale = Vector2(15, 1)
+
+[node name="Platform" parent="." instance=ExtResource("2_6rkd1")]
+position = Vector2(-2523, 682)
+scale = Vector2(5, 0.2)

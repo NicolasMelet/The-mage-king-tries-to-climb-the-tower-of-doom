@@ -1,24 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://biw3hms7eupho"]
+[gd_scene load_steps=5 format=3 uid="uid://biw3hms7eupho"]
 
 [ext_resource type="Texture2D" uid="uid://dsua5ylvg56hm" path="res://icon.svg" id="1_jayl6"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_o07gp"]
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_1samt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ww0j"]
 size = Vector2(124, 127)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(1, 32)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_o07gp")
 SPEED = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -63)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_jayl6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -63.5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_1ww0j")
 one_way_collision_margin = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-6, -176)
+limit_left = -6300
+limit_top = -300
+limit_right = 1120
+limit_bottom = 745
+limit_smoothed = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+script = ExtResource("3_1samt")
