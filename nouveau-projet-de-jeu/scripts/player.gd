@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 	current_camera()
 	gravity(delta)
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		#velocity.y = JUMP_VELOCITY
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("fireball"):
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		fireball.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		owner.add_child(fireball)
 
-	var direction := Input.get_axis("left", "right")
+	var direction := Input.get_axis("left", "right") if not is_on_floor() else 0.0
 	print(abs(velocity.x + direction * SPEED))
 	if direction:
 		velocity.x = direction * SPEED + energyExplosion
