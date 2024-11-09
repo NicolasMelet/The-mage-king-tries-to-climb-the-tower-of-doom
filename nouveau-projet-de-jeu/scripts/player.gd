@@ -3,14 +3,30 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -600.0
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 const FIRE_BALL = preload("res://scenes/fireBall.tscn")
+
+var last_facing_direction := Vector2(0, 1)
+var anim_direction : String
+
+func _ready() -> void:
+	pass
+	animation_player.play("idle_left")
 
 func player():
 	pass
 
 func _physics_process(delta: float) -> void:
+
 	current_camera()
-	gravity(delta)
+  gravity(delta)
+
+	# Add the gravity
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("fireball"):
@@ -24,13 +40,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	#if Input.is_mouse_button_pressed(1): # when click Left mouse button
-		#target = get_global_mouse_position()
-	#velocity = global_position.direction_to(target) * speed
-	#if global_position.distance_to(target) > 5:
-		#velocity = move_and_slide(velocity)
-
 	move_and_slide()
 	
 func gravity(delta):
@@ -44,4 +53,3 @@ func current_camera():
 	elif global.current_scene == "tower":
 		$CameraVillage.enabled = false
 		$CameraTower.enabled = true
-		
