@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 
 @export var SPEED = 300.0
-@export var JUMP_VELOCITY = -600.0
+@export var JUMP_VELOCITY = -300.0
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 const FIRE_BALL = preload("res://scenes/fireBall.tscn")
+@onready var AIR_FRICTION = 20
+var energyExplosion = 0
 
 var last_facing_direction := Vector2(0, 1)
 var anim_direction : String
@@ -14,6 +16,9 @@ func _ready() -> void:
 
 func player():
 	pass
+
+func explosion(energy):
+	energyExplosion = energy
 
 func _physics_process(delta: float) -> void:
 
@@ -31,10 +36,14 @@ func _physics_process(delta: float) -> void:
 		owner.add_child(fireball)
 
 	var direction := Input.get_axis("left", "right")
+	print(abs(velocity.x + direction * SPEED))
 	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = direction * SPEED + energyExplosion
+	elif velocity.x != 0:
+		velocity.x = move_toward(velocity.x, 0, AIR_FRICTION)
+	
+	energyExplosion = move_toward(energyExplosion, 0, AIR_FRICTION)
+	
 	move_and_slide()
 	
 func gravity(delta):
