@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	gravity(delta)
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("fireball"):
 		var fireball = FIRE_BALL.instantiate()
 		fireball.set_global_position(global_position)
 		fireball.rotation = global_position.direction_to(get_global_mouse_position()).angle()
