@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://do001ywmxewo0"]
 
 [ext_resource type="PackedScene" uid="uid://biw3hms7eupho" path="res://scenes/player.tscn" id="1_8v77d"]
-[ext_resource type="Script" path="res://scenes/world.gd" id="1_dky6n"]
-[ext_resource type="PackedScene" uid="uid://dttxa7ntyokfn" path="res://scenes/Village.tscn" id="2_plvn4"]
-[ext_resource type="PackedScene" uid="uid://fbwa3kdxff4k" path="res://scenes/DecoRectangle.tscn" id="4_behxb"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_dky6n"]
+[ext_resource type="PackedScene" uid="uid://dusd3eimmfvwo" path="res://scenes/Village.tscn" id="2_plvn4"]
+[ext_resource type="PackedScene" uid="uid://d3spaq2otp6qv" path="res://scenes/DecoRectangle.tscn" id="4_behxb"]
 [ext_resource type="PackedScene" uid="uid://dn1mrdsfbeinl" path="res://scenes/Arrow.tscn" id="5_kag6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8v2kf"]
