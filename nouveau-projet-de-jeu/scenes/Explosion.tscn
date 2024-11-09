@@ -1,10 +1,134 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxgnj6ntvqvyn"]
+[gd_scene load_steps=11 format=3 uid="uid://cxgnj6ntvqvyn"]
 
 [ext_resource type="Script" path="res://scripts/explosion.gd" id="1_an1v3"]
+[ext_resource type="Texture2D" uid="uid://bfxsjt2h87iqq" path="res://spritesheets/red_explosion.png" id="2_wifg7"]
+[ext_resource type="Texture2D" uid="uid://bclgnfqiuug43" path="res://texture/neutral_texture_light.webp" id="3_tltwi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ags1"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_wy5ig"]
+[sub_resource type="Animation" id="Animation_accxw"]
+resource_name = "default"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.9, 3.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:texture_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.25, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qpgm1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:texture_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n4ml0"]
+_data = {
+"RESET": SubResource("Animation_qpgm1"),
+"default": SubResource("Animation_accxw")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vuc36"]
+animation = &"default"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ajtqh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_flq2d"]
+states/End/position = Vector2(898, 101)
+states/Start/position = Vector2(190, 94)
+states/default/node = SubResource("AnimationNodeAnimation_vuc36")
+states/default/position = Vector2(454, 109)
+transitions = ["Start", "default", SubResource("AnimationNodeStateMachineTransition_ajtqh")]
 
 [node name="Explosion" type="Area2D"]
 scale = Vector2(5, 5)
@@ -13,10 +137,27 @@ script = ExtResource("1_an1v3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1ags1")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0.503535, 0.303575, 0.826201, 1)
-position = Vector2(-5.36442e-07, 3.75509e-06)
-scale = Vector2(20.0227, 20)
-mesh = SubResource("SphereMesh_wy5ig")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.996078, 0.756863, 0.486275, 1)
+texture = ExtResource("3_tltwi")
+texture_scale = 0.25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_wifg7")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_n4ml0")
+}
+movie_quit_on_finish = true
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
+root_node = NodePath("../../..")
+tree_root = SubResource("AnimationNodeStateMachine_flq2d")
+anim_player = NodePath("..")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

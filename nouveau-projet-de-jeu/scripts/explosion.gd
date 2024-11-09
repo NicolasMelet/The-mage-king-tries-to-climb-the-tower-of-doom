@@ -3,16 +3,17 @@ extends Area2D
 @export var EXPLOSION_STRENGTH = 3000
 var MAX_TIME = 0.2
 var CURRENT_TIME = 0
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	CURRENT_TIME += delta
 	if CURRENT_TIME >= MAX_TIME:
+		pass
 		queue_free()
 
 

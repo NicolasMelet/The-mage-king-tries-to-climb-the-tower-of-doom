@@ -64,6 +64,6 @@ texture_filter = 1
 position = Vector2(1.43051e-06, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8qcp4")
-frame_progress = 0.57167
+frame_progress = 0.492217
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

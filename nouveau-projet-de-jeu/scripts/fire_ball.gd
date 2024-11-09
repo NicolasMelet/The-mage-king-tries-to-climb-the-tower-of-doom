@@ -1,7 +1,11 @@
 extends Area2D
 
 @export var FIRE_BALL_SPEED = 3000.0
+@onready var _animated_sprite = $AnimatedSprite2D
 const EXPLOSION = preload("res://scenes/Explosion.tscn")
+
+func _ready() -> void:
+	_animated_sprite.play("default")
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * FIRE_BALL_SPEED * delta
