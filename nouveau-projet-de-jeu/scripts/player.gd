@@ -32,7 +32,9 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("fireball"):
 		var fireball = FIRE_BALL.instantiate()
-		fireball.set_global_position(global_position)
+		var futur_pos = global_position
+		futur_pos.x += 8
+		fireball.set_global_position(futur_pos)
 		fireball.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		owner.add_child(fireball)
 

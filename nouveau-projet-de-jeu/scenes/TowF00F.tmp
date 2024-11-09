@@ -780,6 +780,9 @@ layer_0/tile_data = PackedInt32Array(2621504, 65536, 20, 2621503, 65536, 20, 262
 
 [node name="Player" parent="." instance=ExtResource("3_m74q8")]
 position = Vector2(399, 483)
+SPEED = 300.0
+JUMP_VELOCITY = -300.0
+push_force = 80.0
 
 [node name="Baril2" parent="." instance=ExtResource("5_pp5l0")]
 position = Vector2(260, 597)

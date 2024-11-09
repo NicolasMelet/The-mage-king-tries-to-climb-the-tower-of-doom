@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bhe10fu0v8m5p" path="res://spritesheets/vase.png" id="1_ke3du"]
 
 [node name="Vase" type="RigidBody2D"]
-mass = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://biw3hms7eupho"]
+[gd_scene load_steps=36 format=3 uid="uid://biw3hms7eupho"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_o07gp"]
 [ext_resource type="Texture2D" uid="uid://boqjifp1qpnma" path="res://spritesheets/mc.png" id="2_74hhx"]
@@ -382,19 +382,29 @@ animation = &"running_left"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nagy5"]
 animation = &"running_right"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3ny8"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ly2l1"]
+animation = &"walk_right"
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_o21yi"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_vw7qo")
 blend_point_0/pos = 0.01
 blend_point_1/node = SubResource("AnimationNodeAnimation_4xsbs")
 blend_point_1/pos = -0.01
 blend_point_2/node = SubResource("AnimationNodeAnimation_ixhvq")
-blend_point_2/pos = -0.2
+blend_point_2/pos = -0.5
 blend_point_3/node = SubResource("AnimationNodeAnimation_qdyws")
-blend_point_3/pos = 0.2
+blend_point_3/pos = 0.5
 blend_point_4/node = SubResource("AnimationNodeAnimation_ktnql")
 blend_point_4/pos = -1.0
 blend_point_5/node = SubResource("AnimationNodeAnimation_nagy5")
 blend_point_5/pos = 1.0
+blend_point_6/node = SubResource("AnimationNodeAnimation_a3ny8")
+blend_point_6/pos = -0.1
+blend_point_7/node = SubResource("AnimationNodeAnimation_ly2l1")
+blend_point_7/pos = 0.1
 value_label = "x"
 blend_mode = 1
 
@@ -414,10 +424,10 @@ states/Air/node = SubResource("AnimationNodeBlendSpace2D_wproa")
 states/Air/position = Vector2(398.164, 101.412)
 states/End/position = Vector2(812, 119)
 states/Ground/node = SubResource("AnimationNodeBlendSpace1D_o21yi")
-states/Ground/position = Vector2(398.164, 212.412)
+states/Ground/position = Vector2(405.164, 214.412)
 states/Start/position = Vector2(103, 129)
 transitions = ["Start", "Ground", SubResource("AnimationNodeStateMachineTransition_okmgq"), "Ground", "Air", SubResource("AnimationNodeStateMachineTransition_k3gko"), "Air", "Ground", SubResource("AnimationNodeStateMachineTransition_kbs5g")]
-graph_offset = Vector2(-378.836, -79.5881)
+graph_offset = Vector2(-401.836, 23.4119)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ww0j"]
 size = Vector2(80, 111.5)
@@ -444,8 +454,8 @@ tree_root = SubResource("AnimationNodeStateMachine_eplmd")
 anim_player = NodePath("..")
 parameters/conditions/air = false
 parameters/conditions/ground = false
-parameters/Air/blend_position = Vector2(0, 0)
-parameters/Ground/blend_position = -0.79868
+parameters/Air/blend_position = Vector2(-0.692396, -0.170213)
+parameters/Ground/blend_position = -0.636964
 script = ExtResource("3_6j4ac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
