@@ -9,6 +9,7 @@ size = Vector2(1000, 100)
 size = Vector2(94, 100)
 
 [node name="FireBall" type="Area2D"]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_l6yga")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
