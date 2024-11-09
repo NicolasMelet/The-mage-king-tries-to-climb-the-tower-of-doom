@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://do001ywmxewo0"]
+[gd_scene load_steps=8 format=3 uid="uid://do001ywmxewo0"]
 
 [ext_resource type="PackedScene" uid="uid://biw3hms7eupho" path="res://scenes/player.tscn" id="1_8v77d"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_dky6n"]
 [ext_resource type="PackedScene" uid="uid://dttxa7ntyokfn" path="res://scenes/Village.tscn" id="2_plvn4"]
 [ext_resource type="PackedScene" uid="uid://fbwa3kdxff4k" path="res://scenes/DecoRectangle.tscn" id="4_behxb"]
 [ext_resource type="PackedScene" uid="uid://dn1mrdsfbeinl" path="res://scenes/Arrow.tscn" id="5_kag6i"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8v2kf"]
+size = Vector2(94, 101)
+
+[sub_resource type="QuadMesh" id="QuadMesh_g23gr"]
+size = Vector2(1000, 100)
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_dky6n")
 
 [node name="Arrow" parent="." instance=ExtResource("5_kag6i")]
 position = Vector2(327, 290)
@@ -20,3 +28,19 @@ position = Vector2(580, 654)
 position = Vector2(-1937, 425)
 rotation = 1.5708
 scale = Vector2(0.55, 1)
+
+[node name="TowerTransition" type="Area2D" parent="."]
+position = Vector2(-4653, 660)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerTransition"]
+position = Vector2(0, -40.5)
+shape = SubResource("RectangleShape2D_8v2kf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="TowerTransition/CollisionShape2D"]
+modulate = Color(1, 0.0392157, 0, 1)
+position = Vector2(3, -125.5)
+scale = Vector2(0.2, 1)
+mesh = SubResource("QuadMesh_g23gr")
+
+[connection signal="body_entered" from="TowerTransition" to="." method="_on_tower_transition_body_entered"]
+[connection signal="body_exited" from="TowerTransition" to="." method="_on_tower_transition_body_exited"]
