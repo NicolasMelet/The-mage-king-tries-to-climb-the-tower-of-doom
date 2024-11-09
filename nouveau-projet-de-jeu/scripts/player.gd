@@ -10,7 +10,6 @@ var last_facing_direction := Vector2(0, 1)
 var anim_direction : String
 
 func _ready() -> void:
-	pass
 	animation_player.play("idle_left")
 
 func player():
@@ -19,11 +18,7 @@ func player():
 func _physics_process(delta: float) -> void:
 
 	current_camera()
-  gravity(delta)
-
-	# Add the gravity
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	gravity(delta)
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -35,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		fireball.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		owner.add_child(fireball)
 
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
