@@ -1,6 +1,6 @@
 extends Node
 
-var current_scene = "village"
+var current_scene = "tower"
 var transition_scene = false
 
 # Called when the node enters the scene tree for the first time.
