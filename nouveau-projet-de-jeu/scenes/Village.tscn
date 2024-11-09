@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dttxa7ntyokfn"]
+[gd_scene load_steps=5 format=3 uid="uid://dusd3eimmfvwo"]
 
 [ext_resource type="PackedScene" uid="uid://cclb1ed24kxn4" path="res://scenes/Platform.tscn" id="2_6rkd1"]
 [ext_resource type="PackedScene" uid="uid://cjuobipq7aqaw" path="res://scenes/Maison.tscn" id="3_j8ema"]
-[ext_resource type="PackedScene" uid="uid://fbwa3kdxff4k" path="res://scenes/DecoRectangle.tscn" id="4_fh6cj"]
+[ext_resource type="PackedScene" uid="uid://d3spaq2otp6qv" path="res://scenes/DecoRectangle.tscn" id="4_fh6cj"]
 [ext_resource type="PackedScene" uid="uid://nmnlt137oj6w" path="res://scenes/MurInvisible.tscn" id="4_lp3g1"]
 
 [node name="Village" type="StaticBody2D"]
