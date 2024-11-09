@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://vjcioceflypc"]
+[gd_scene load_steps=3 format=3 uid="uid://cclb1ed24kxn4"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_blian"]
 size = Vector2(1000, 100)
