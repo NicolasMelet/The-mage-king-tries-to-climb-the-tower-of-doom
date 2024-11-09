@@ -1,10 +1,62 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxgnj6ntvqvyn"]
+[gd_scene load_steps=13 format=3 uid="uid://cxgnj6ntvqvyn"]
 
 [ext_resource type="Script" path="res://scripts/explosion.gd" id="1_an1v3"]
+[ext_resource type="AudioStream" uid="uid://dn66vovv0apda" path="res://Sounds/explosion.mp3" id="2_nwj8p"]
 [ext_resource type="Texture2D" uid="uid://bfxsjt2h87iqq" path="res://spritesheets/red_explosion.png" id="2_wifg7"]
 [ext_resource type="Texture2D" uid="uid://bclgnfqiuug43" path="res://texture/neutral_texture_light.webp" id="3_tltwi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ags1"]
+
+[sub_resource type="Animation" id="Animation_qpgm1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:texture_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
 
 [sub_resource type="Animation" id="Animation_accxw"]
 resource_name = "default"
@@ -60,57 +112,6 @@ tracks/3/keys = {
 "values": [0.25, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_qpgm1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PointLight2D:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PointLight2D:texture_scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.25]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n4ml0"]
 _data = {
 "RESET": SubResource("Animation_qpgm1"),
@@ -119,8 +120,17 @@ _data = {
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vuc36"]
 animation = &"default"
+use_custom_timeline = true
+timeline_length = 0.3
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ajtqh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bn4gq"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_flq2d"]
@@ -128,11 +138,17 @@ states/End/position = Vector2(898, 101)
 states/Start/position = Vector2(190, 94)
 states/default/node = SubResource("AnimationNodeAnimation_vuc36")
 states/default/position = Vector2(454, 109)
-transitions = ["Start", "default", SubResource("AnimationNodeStateMachineTransition_ajtqh")]
+transitions = ["Start", "default", SubResource("AnimationNodeStateMachineTransition_ajtqh"), "default", "End", SubResource("AnimationNodeStateMachineTransition_bn4gq")]
+graph_offset = Vector2(-481, 40)
 
 [node name="Explosion" type="Area2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_an1v3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nwj8p")
+volume_db = 2.0
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1ags1")

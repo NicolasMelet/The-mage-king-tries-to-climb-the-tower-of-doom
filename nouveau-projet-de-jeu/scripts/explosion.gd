@@ -1,13 +1,13 @@
 extends Area2D
 
 @export var EXPLOSION_STRENGTH = 3000
-var MAX_TIME = 0.2
+var MAX_TIME = 0.3
 var CURRENT_TIME = 0
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	audio_stream_player_2d.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
