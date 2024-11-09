@@ -402,11 +402,13 @@ blend_point_4/pos = -1.0
 blend_point_5/node = SubResource("AnimationNodeAnimation_nagy5")
 blend_point_5/pos = 1.0
 blend_point_6/node = SubResource("AnimationNodeAnimation_a3ny8")
-blend_point_6/pos = -0.1
+blend_point_6/pos = -0.02
 blend_point_7/node = SubResource("AnimationNodeAnimation_ly2l1")
-blend_point_7/pos = 0.1
+blend_point_7/pos = 0.02
+snap = 0.01
 value_label = "x"
 blend_mode = 1
+sync = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_okmgq"]
 advance_mode = 2
@@ -455,7 +457,7 @@ anim_player = NodePath("..")
 parameters/conditions/air = false
 parameters/conditions/ground = false
 parameters/Air/blend_position = Vector2(-0.692396, -0.170213)
-parameters/Ground/blend_position = -0.636964
+parameters/Ground/blend_position = -0.0990099
 script = ExtResource("3_6j4ac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

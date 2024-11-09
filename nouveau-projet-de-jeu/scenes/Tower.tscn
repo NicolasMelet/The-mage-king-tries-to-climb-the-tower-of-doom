@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crk6fhq8fs5x1"]
+[gd_scene load_steps=11 format=3 uid="uid://crk6fhq8fs5x1"]
 
 [ext_resource type="PackedScene" uid="uid://dn1mrdsfbeinl" path="res://scenes/Arrow.tscn" id="1_5mx4r"]
 [ext_resource type="PackedScene" uid="uid://cclb1ed24kxn4" path="res://scenes/Platform.tscn" id="2_4j38g"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dumwr6gghljrr" path="res://scenes/Props/baril.tscn" id="5_pp5l0"]
 [ext_resource type="PackedScene" uid="uid://cnqukdr83ixl7" path="res://scenes/Props/crate.tscn" id="6_y6srf"]
 [ext_resource type="PackedScene" uid="uid://b8038vql3yl7i" path="res://scenes/Props/Vase.tscn" id="7_1ooku"]
+[ext_resource type="PackedScene" uid="uid://bd3m0fvac0afj" path="res://scenes/Props/torch.tscn" id="8_cv2l4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6y6u"]
 texture = ExtResource("3_d376o")
@@ -755,6 +756,18 @@ sources/0 = SubResource("TileSetAtlasSource_f6y6u")
 [node name="Tower" type="StaticBody2D"]
 position = Vector2(-13, 0)
 
+[node name="Torch" parent="." instance=ExtResource("8_cv2l4")]
+position = Vector2(104, 527)
+
+[node name="Torch2" parent="." instance=ExtResource("8_cv2l4")]
+position = Vector2(827, 527)
+
+[node name="Torch5" parent="." instance=ExtResource("8_cv2l4")]
+position = Vector2(586, 527)
+
+[node name="Torch4" parent="." instance=ExtResource("8_cv2l4")]
+position = Vector2(345, 527)
+
 [node name="Arrow" parent="." instance=ExtResource("1_5mx4r")]
 position = Vector2(465, 418)
 rotation = 1.5708
@@ -801,3 +814,6 @@ position = Vector2(186, 521)
 
 [node name="Vase2" parent="." instance=ExtResource("7_1ooku")]
 position = Vector2(635, 604)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.501961, 0.501961, 0.501961, 1)
