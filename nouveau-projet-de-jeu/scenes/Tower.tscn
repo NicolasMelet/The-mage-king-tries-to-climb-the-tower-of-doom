@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/end_zone.gd" id="7_ex8q0"]
 [ext_resource type="PackedScene" uid="uid://bd3m0fvac0afj" path="res://scenes/Props/torch.tscn" id="8_cv2l4"]
 [ext_resource type="AudioStream" uid="uid://dp26prrnf405" path="res://Sounds/expansion.ogg" id="9_3lh06"]
-[ext_resource type="PackedScene" path="res://scenes/window.tscn" id="9_4o062"]
+[ext_resource type="PackedScene" uid="uid://5ibnovpeoh58" path="res://scenes/window.tscn" id="9_4o062"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pqkqm"]
 texture = ExtResource("1_sqtks")

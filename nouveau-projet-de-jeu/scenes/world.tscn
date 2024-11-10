@@ -1513,6 +1513,7 @@ motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(1900, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.784314, 0.772549, 0.772549, 1)
 texture_filter = 1
 position = Vector2(300, 200)
 scale = Vector2(7, 7)
@@ -1523,6 +1524,7 @@ motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(1900, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.493581, 0.830438, 0.949635, 1)
 texture_filter = 1
 position = Vector2(300, 200)
 scale = Vector2(7, 7)
@@ -1533,6 +1535,7 @@ motion_scale = Vector2(0.8, 1)
 motion_mirroring = Vector2(1900, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color(0.784314, 0.772549, 0.772549, 1)
 texture_filter = 1
 position = Vector2(300, 200)
 scale = Vector2(7, 7)
@@ -1542,6 +1545,7 @@ texture = ExtResource("10_e61ix")
 motion_mirroring = Vector2(1900, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.784314, 0.772549, 0.772549, 1)
 texture_filter = 1
 position = Vector2(300, 200)
 scale = Vector2(7, 7)
@@ -1580,6 +1584,12 @@ shape = SubResource("RectangleShape2D_8v2kf")
 position = Vector2(-0.500061, -39.5)
 scale = Vector2(1.90196, 1.80357)
 texture = ExtResource("6_alk1n")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.77084, 0.770839, 0.770839, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.238589, 0.729971, 1, 1)
 
 [connection signal="body_entered" from="TowerTransition" to="." method="_on_tower_transition_body_entered"]
 [connection signal="body_exited" from="TowerTransition" to="." method="_on_tower_transition_body_exited"]
