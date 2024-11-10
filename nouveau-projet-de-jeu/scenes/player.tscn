@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://biw3hms7eupho"]
+[gd_scene load_steps=44 format=3 uid="uid://biw3hms7eupho"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_o07gp"]
 [ext_resource type="Texture2D" uid="uid://boqjifp1qpnma" path="res://spritesheets/mc.png" id="2_74hhx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/player_animation_tree.gd" id="3_6j4ac"]
 [ext_resource type="Texture2D" uid="uid://vbou2kj5av4" path="res://spritesheets/electric_hook.png" id="5_50nad"]
 [ext_resource type="Script" path="res://scripts/hook_point.gd" id="5_gq3tc"]
+[ext_resource type="AudioStream" uid="uid://vwjkbv7x28vq" path="res://Sounds/electric.mp3" id="7_adk0t"]
 
 [sub_resource type="Animation" id="Animation_f2yoe"]
 length = 0.001
@@ -572,6 +573,12 @@ script = ExtResource("5_gq3tc")
 sprite_frames = SubResource("SpriteFrames_nymuc")
 frame = 2
 frame_progress = 0.558018
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_adk0t")
+volume_db = -20.0
+bus = &"Sfx"
+parameters/looping = true
 
 [node name="HookRay" type="RayCast2D" parent="."]
 collision_mask = 3855

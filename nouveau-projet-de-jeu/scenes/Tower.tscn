@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://crk6fhq8fs5x1"]
+[gd_scene load_steps=53 format=3 uid="uid://crk6fhq8fs5x1"]
 
 [ext_resource type="PackedScene" uid="uid://dn1mrdsfbeinl" path="res://scenes/Arrow.tscn" id="1_5mx4r"]
 [ext_resource type="Texture2D" uid="uid://dvua6x86cergb" path="res://spritesheets/tileset.png" id="3_d376o"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8038vql3yl7i" path="res://scenes/Props/Vase.tscn" id="7_1ooku"]
 [ext_resource type="Script" path="res://scripts/end_zone.gd" id="7_ex8q0"]
 [ext_resource type="PackedScene" uid="uid://bd3m0fvac0afj" path="res://scenes/Props/torch.tscn" id="8_cv2l4"]
+[ext_resource type="AudioStream" uid="uid://dp26prrnf405" path="res://Sounds/expansion.ogg" id="9_3lh06"]
 [ext_resource type="PackedScene" uid="uid://5ibnovpeoh58" path="res://scenes/window.tscn" id="9_4o062"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6y6u"]
@@ -1550,6 +1551,12 @@ polygon = PackedVector2Array(-150, -4450, 1082, -4450, 1082, -4610, -150, -4610)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ceiling"]
 occluder = SubResource("OccluderPolygon2D_v2l3v")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_3lh06")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
 
 [node name="Player" parent="." instance=ExtResource("3_m74q8")]
 position = Vector2(1001, 588)

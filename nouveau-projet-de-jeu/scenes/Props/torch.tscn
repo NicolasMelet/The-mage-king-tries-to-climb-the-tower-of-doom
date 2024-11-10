@@ -97,6 +97,7 @@ offsets = PackedFloat32Array(0, 0.847896)
 colors = PackedColorArray(0.837874, 0.630767, 0, 1, 1, 1, 0.439216, 1)
 
 [node name="Torch" type="Sprite2D"]
+modulate = Color(0.629675, 0.629675, 0.629675, 1)
 texture_filter = 1
 texture = ExtResource("1_bt6or")
 

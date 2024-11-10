@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var SWING_FORCE = 40.0
 @export var MAX_HOOKS = 2
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var hook_point = $HookPoint
 @onready var hook_ray = $HookRay
@@ -38,10 +39,8 @@ func _physics_process(delta: float) -> void:
 	if hook_state != "hooked":
 		gravity(delta)
 	
-
 	handle_fireball(delta)
 	
-
 	match hook_state:
 		"idle":
 			handle_idle_state()
@@ -99,6 +98,7 @@ func handle_idle_state() -> void:
 				hook_target = hook_ray.get_collision_point()
 				hook_point.global_position = hook_target
 				hook_state = "hooked"
+				audio_stream_player_2d.play()
 				hook_point.visible = true
 				left_hook -= 1
 				rope_length = global_position.distance_to(hook_target)
@@ -168,6 +168,7 @@ func update_rope_visual() -> void:
 
 func release_hook() -> void:
 	hook_state = "idle"
+	audio_stream_player_2d.stop()
 	hook_point.visible = false
 	hook_point.position = Vector2.ZERO
 	rope_line.clear_points()
