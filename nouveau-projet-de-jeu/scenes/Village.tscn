@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dusd3eimmfvwo"]
+[gd_scene load_steps=8 format=3 uid="uid://dusd3eimmfvwo"]
 
 [ext_resource type="Texture2D" uid="uid://b7c8a7s3c41q7" path="res://spritesheets/AUTUMNTREE.png" id="4_bpval"]
 [ext_resource type="PackedScene" uid="uid://nmnlt137oj6w" path="res://scenes/MurInvisible.tscn" id="4_lp3g1"]
 [ext_resource type="Texture2D" uid="uid://bpfcsyqvh4fk2" path="res://spritesheets/home.png" id="4_xkwrx"]
 [ext_resource type="Texture2D" uid="uid://dvua6x86cergb" path="res://spritesheets/tileset.png" id="5_f6yv2"]
+[ext_resource type="AudioStream" uid="uid://wcjt6c4mcb0e" path="res://Sounds/KleptoLindaMountainA.wav" id="5_lplsa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u0yju"]
 texture = ExtResource("5_f6yv2")
@@ -819,3 +820,7 @@ polygon = PackedVector2Array(-2, 31, -2.08333, 16, -23.9167, -2.83333, -19.3333,
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4" groups=["Collide"]]
 polygon = PackedVector2Array(-6278, 638, 1290, 638, 1290, 734, -6278, 734)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lplsa")
+autoplay = true
