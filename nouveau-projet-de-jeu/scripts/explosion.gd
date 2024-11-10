@@ -2,21 +2,24 @@ extends Area2D
 
 @export var EXPLOSION_STRENGTH = [400, 750, 1000]
 @export var EXPLOSION_STRENGTH_ITEMS = [700, 1000, 2000]
-var MAX_TIME = 0.2
-var CURRENT_TIME = 0
 var size = 0
+var MAX_TIME = 0.3
+var CURRENT_TIME = 0
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	audio_stream_player_2d.play()
 
 func setSize(newSize):
 	size = newSize
+  
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	CURRENT_TIME += delta
 	if CURRENT_TIME >= MAX_TIME:
+		pass
 		queue_free()
 
 

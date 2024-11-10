@@ -1,6 +1,9 @@
 extends Area2D
 
 @export var FIRE_BALL_SPEED = 3000.0
+@onready var _animated_sprite = $AnimatedSprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 const EXPLOSION = preload("res://scenes/Explosion.tscn")
 var size = 0
 
@@ -21,6 +24,10 @@ func setSize(newSize):
 		get_node("AnimatedSprite2D").scale.y = 9
 		get_node("PointLight2D").scale.x = 2
 		get_node("PointLight2D").scale.y = 2
+
+func _ready() -> void:
+	_animated_sprite.play("default")
+	audio_stream_player_2d.play()
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * FIRE_BALL_SPEED * delta

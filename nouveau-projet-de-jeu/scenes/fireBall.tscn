@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1wyruyisg11p"]
+[gd_scene load_steps=11 format=3 uid="uid://c1wyruyisg11p"]
 
 [ext_resource type="Script" path="res://scripts/fire_ball.gd" id="1_l6yga"]
+[ext_resource type="AudioStream" uid="uid://dy50x1d2eknb6" path="res://Sounds/fireball.mp3" id="2_s2ile"]
 [ext_resource type="Texture2D" uid="uid://vqswoovjnw2q" path="res://spritesheets/red_fireball.png" id="2_snaay"]
 [ext_resource type="Texture2D" uid="uid://bclgnfqiuug43" path="res://texture/neutral_texture_light.webp" id="3_cru6m"]
 
@@ -47,6 +48,12 @@ animations = [{
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_l6yga")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1.43051e-06, 0)
+scale = Vector2(3, 3)
+stream = ExtResource("2_s2ile")
+bus = &"Sfx"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.58946e-06, 2.38419e-07)
 scale = Vector2(3, 3)
@@ -64,6 +71,6 @@ texture_filter = 1
 position = Vector2(1.43051e-06, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8qcp4")
-frame_progress = 0.57167
+frame_progress = 0.492217
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
