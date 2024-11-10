@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn6g2yxoaov06"]
+[gd_scene load_steps=5 format=3 uid="uid://cn6g2yxoaov06"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_f2m5x"]
 [ext_resource type="Theme" uid="uid://dmwmdqaxdcbhr" path="res://themes/default_theme.tres" id="2_r1ij0"]
+[ext_resource type="Texture2D" uid="uid://b27t51h6kmd8w" path="res://spritesheets/main_menu.webp" id="3_owwre"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ui68t"]
+font_size = 48
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -11,6 +17,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f2m5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 408)
+scale = Vector2(1.25, 0.796875)
+texture = ExtResource("3_owwre")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 8.0
+offset_right = 1079.0
+offset_bottom = 173.0
+text = "The mage king tries to climb the tower of doom"
+label_settings = SubResource("LabelSettings_ui68t")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
