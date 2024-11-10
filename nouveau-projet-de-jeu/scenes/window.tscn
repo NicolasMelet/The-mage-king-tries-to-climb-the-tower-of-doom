@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ibnovpeoh58"]
+
+[ext_resource type="Texture2D" uid="uid://cb3facdj88u6l" path="res://spritesheets/window.png" id="1_cbab3"]
+[ext_resource type="Texture2D" uid="uid://bclgnfqiuug43" path="res://texture/neutral_texture_light.webp" id="2_8o7v2"]
+
+[node name="Window" type="Sprite2D"]
+modulate = Color(0.629675, 0.629675, 0.629675, 1)
+texture_filter = 1
+texture = ExtResource("1_cbab3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.15483, 0.332829, 0.480896, 1)
+energy = 2.0
+texture = ExtResource("2_8o7v2")
+texture_scale = 2.5
