@@ -1518,7 +1518,6 @@ texture_filter = 1
 texture = ExtResource("8_oerbp")
 
 [node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBackground"]
-scale = Vector2(1, 1)
 repeat_size = Vector2(272, 0)
 repeat_times = 5
 
