@@ -1,4 +1,5 @@
 extends Control
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _on_quit_pressed() -> void:
 	get_tree().quit();
