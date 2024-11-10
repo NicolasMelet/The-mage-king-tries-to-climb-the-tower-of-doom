@@ -5,30 +5,36 @@ extends Area2D
 var size = 0
 var MAX_TIME = 0.3
 var CURRENT_TIME = 0
+
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	audio_stream_player_2d.play()
 
 func setSize(newSize):
 	size = newSize
   
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	CURRENT_TIME += delta
 	if CURRENT_TIME >= MAX_TIME:
-		pass
 		queue_free()
 
+func apply_impulse_to_character(character: CharacterBody2D) -> void:
+	var direction := global_position.direction_to(character.global_position)
+	var impulse = direction * EXPLOSION_STRENGTH[size]
+	
+	# Add to existing velocity instead of replacing it
+	character.velocity += impulse
+	# Only pass the X component for horizontal explosion force
+	character.explosion(impulse.x)
+
+func apply_explosion_force(body: Node2D) -> void:
+	var direction := global_position.direction_to(body.global_position)
+	
+	if body is RigidBody2D:
+		body.apply_impulse(EXPLOSION_STRENGTH_ITEMS[size] * direction)
+	elif body is CharacterBody2D:
+		apply_impulse_to_character(body)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is RigidBody2D:
-		var direction = global_position.direction_to(body.global_position)
-		body.apply_impulse(EXPLOSION_STRENGTH_ITEMS[size] * direction)
-	if (body.is_in_group("Player")):
-		@warning_ignore("integer_division")
-		body.velocity = global_position.direction_to(body.global_position) * EXPLOSION_STRENGTH[size]
-		@warning_ignore("integer_division")
-		body.explosion((global_position.direction_to(body.global_position) * EXPLOSION_STRENGTH[size]).x)
+	apply_explosion_force(body)

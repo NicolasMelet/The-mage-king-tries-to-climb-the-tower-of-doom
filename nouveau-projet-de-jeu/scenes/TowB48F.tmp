@@ -765,7 +765,7 @@ texture = ExtResource("3_d376o")
 [sub_resource type="TileSet" id="TileSet_0l8eo"]
 sources/0 = SubResource("TileSetAtlasSource_f6y6u")
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Tower" type="StaticBody2D"]
 position = Vector2(-13, 0)
 
 [node name="FirstFloor" type="Node2D" parent="."]

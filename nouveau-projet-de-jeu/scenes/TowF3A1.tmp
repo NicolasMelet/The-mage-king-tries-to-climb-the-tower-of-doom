@@ -765,7 +765,7 @@ texture = ExtResource("3_d376o")
 [sub_resource type="TileSet" id="TileSet_0l8eo"]
 sources/0 = SubResource("TileSetAtlasSource_f6y6u")
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Tower" type="StaticBody2D"]
 position = Vector2(-13, 0)
 
 [node name="FirstFloor" type="Node2D" parent="."]
@@ -931,7 +931,14 @@ layer_0/tile_data = PackedInt32Array(2621504, 65536, 20, 2621503, 65536, 20, 262
 
 [node name="Player" parent="." instance=ExtResource("3_m74q8")]
 position = Vector2(423, 590)
-SPEED = 100.0
+SPEED = null
+JUMP_VELOCITY = null
+push_force = null
+MAX_CHARGE = null
+MID_CHARGE = null
+HOOK_SPEED = null
+MAX_HOOK_DISTANCE = null
+SWING_FORCE = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.501961, 0.501961, 0.501961, 1)

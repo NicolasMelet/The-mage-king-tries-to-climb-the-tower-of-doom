@@ -1,9 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://biw3hms7eupho"]
+[gd_scene load_steps=43 format=3 uid="uid://biw3hms7eupho"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_o07gp"]
 [ext_resource type="Texture2D" uid="uid://boqjifp1qpnma" path="res://spritesheets/mc.png" id="2_74hhx"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_1samt"]
 [ext_resource type="Script" path="res://scripts/player_animation_tree.gd" id="3_6j4ac"]
+[ext_resource type="Texture2D" uid="uid://vbou2kj5av4" path="res://spritesheets/electric_hook.png" id="5_50nad"]
+[ext_resource type="Script" path="res://scripts/hook_point.gd" id="5_gq3tc"]
 
 [sub_resource type="Animation" id="Animation_f2yoe"]
 length = 0.001
@@ -31,6 +33,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3oll7"]
@@ -237,6 +251,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 12), Vector2(0, 8)]
+}
 
 [sub_resource type="Animation" id="Animation_l50cu"]
 resource_name = "up_right"
@@ -265,6 +291,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 12), Vector2(0, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_paeme"]
@@ -434,10 +472,49 @@ graph_offset = Vector2(-401.836, 23.4119)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ww0j"]
 size = Vector2(80, 111.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx5ma"]
+atlas = ExtResource("5_50nad")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1bbs"]
+atlas = ExtResource("5_50nad")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xib2s"]
+atlas = ExtResource("5_50nad")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dvrn"]
+atlas = ExtResource("5_50nad")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nymuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx5ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1bbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xib2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dvrn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_o07gp")
 SPEED = 150.0
+
+[node name="RopeLine" type="Line2D" parent="."]
+default_color = Color(0.403922, 0.756863, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -486,3 +563,16 @@ script = ExtResource("3_1samt")
 limit_left = 0
 limit_right = 1100
 limit_bottom = 680
+
+[node name="HookPoint" type="Node2D" parent="."]
+visible = false
+script = ExtResource("5_gq3tc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HookPoint"]
+sprite_frames = SubResource("SpriteFrames_nymuc")
+frame = 2
+frame_progress = 0.558018
+
+[node name="HookRay" type="RayCast2D" parent="."]
+collision_mask = 3855
+hit_from_inside = true
