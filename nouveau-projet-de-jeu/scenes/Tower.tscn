@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8038vql3yl7i" path="res://scenes/Props/Vase.tscn" id="7_1ooku"]
 [ext_resource type="PackedScene" uid="uid://bd3m0fvac0afj" path="res://scenes/Props/torch.tscn" id="8_cv2l4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6y6u"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0lyd"]
 texture = ExtResource("3_d376o")
 0:0/0 = 0
 1:0/0 = 0
@@ -750,7 +750,7 @@ texture = ExtResource("3_d376o")
 30:24/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0l8eo"]
-sources/0 = SubResource("TileSetAtlasSource_f6y6u")
+sources/0 = SubResource("TileSetAtlasSource_l0lyd")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2ilnm"]
 polygon = PackedVector2Array(1082, 457, 667, 458, 667, 467, 1082, 467)
@@ -1538,5 +1538,8 @@ polygon = PackedVector2Array(-150, -4450, 1082, -4450, 1082, -4610, -150, -4610)
 occluder = SubResource("OccluderPolygon2D_v2l3v")
 
 [node name="Player" parent="." instance=ExtResource("3_m74q8")]
-position = Vector2(421, 593)
+position = Vector2(432, -4330)
 SPEED = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(366, -4518)
