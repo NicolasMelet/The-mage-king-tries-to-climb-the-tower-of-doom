@@ -1745,31 +1745,110 @@ position = Vector2(32, -1255)
 [node name="Window6" parent="." instance=ExtResource("9_4o062")]
 position = Vector2(549, -576)
 
-[node name="FirstFloor" type="Node2D" parent="."]
+[node name="Torches" type="Node2D" parent="."]
 
-[node name="Torch2" parent="FirstFloor" instance=ExtResource("8_cv2l4")]
+[node name="Torch2" parent="Torches" instance=ExtResource("8_cv2l4")]
 position = Vector2(876, 521)
 
-[node name="Torch5" parent="FirstFloor" instance=ExtResource("8_cv2l4")]
+[node name="Torch5" parent="Torches" instance=ExtResource("8_cv2l4")]
 position = Vector2(90, 522)
 
-[node name="Torch4" parent="FirstFloor" instance=ExtResource("8_cv2l4")]
+[node name="Torch4" parent="Torches" instance=ExtResource("8_cv2l4")]
 position = Vector2(700, 140)
 
-[node name="Torch8" parent="FirstFloor" instance=ExtResource("8_cv2l4")]
+[node name="Torch8" parent="Torches" instance=ExtResource("8_cv2l4")]
 position = Vector2(-74, -149)
 
-[node name="Torch15" parent="FirstFloor" instance=ExtResource("8_cv2l4")]
+[node name="Torch15" parent="Torches" instance=ExtResource("8_cv2l4")]
 position = Vector2(350, 140)
 
-[node name="Torch14" parent="FirstFloor" instance=ExtResource("8_cv2l4")]
+[node name="Torch14" parent="Torches" instance=ExtResource("8_cv2l4")]
 position = Vector2(1021, -801)
 
-[node name="Torch6" parent="FirstFloor" instance=ExtResource("8_cv2l4")]
+[node name="Torch6" parent="Torches" instance=ExtResource("8_cv2l4")]
 position = Vector2(993, 369)
 
-[node name="Torch7" parent="FirstFloor" instance=ExtResource("8_cv2l4")]
+[node name="Torch7" parent="Torches" instance=ExtResource("8_cv2l4")]
 position = Vector2(774, 369)
+
+[node name="Torch10" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(677, -992.5)
+
+[node name="Torch11" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(417, -992.5)
+
+[node name="Torch12" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(184, -992.5)
+
+[node name="Torch13" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(-19, -992.5)
+
+[node name="Torch16" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(980, -1240)
+
+[node name="Torch17" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(504, -1582)
+
+[node name="Torch18" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(892, -1787)
+
+[node name="Torch19" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(358, -1975)
+
+[node name="Torch20" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(227, -1822)
+flip_h = true
+
+[node name="Torch22" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(151, -2684.5)
+
+[node name="Torch21" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(475, -2815.5)
+
+[node name="Torch23" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(649, -4299)
+
+[node name="Torch24" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(293, -4299)
+flip_h = true
+
+[node name="Torch25" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(392, -4299)
+flip_h = true
+
+[node name="Torch26" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(562, -4299)
+flip_h = true
+
+[node name="Torch27" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(326, -3187)
+flip_h = true
+
+[node name="Torch28" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(193, -3187)
+flip_h = true
+
+[node name="Torch29" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(56, -3187)
+flip_h = true
+
+[node name="Torch30" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(-80, -3187)
+flip_h = true
+
+[node name="Torch31" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(435, -3537)
+flip_h = true
+
+[node name="Torch32" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(610, -3770)
+flip_h = true
+
+[node name="Torch33" parent="Torches" instance=ExtResource("8_cv2l4")]
+position = Vector2(163, -3932)
+flip_h = true
+
+[node name="FirstFloor" type="Node2D" parent="."]
 
 [node name="Baril2" parent="FirstFloor" instance=ExtResource("5_pp5l0")]
 position = Vector2(336, -2652)
@@ -1895,18 +1974,6 @@ occluder = SubResource("OccluderPolygon2D_tkl3a")
 
 [node name="SecondFloor" type="Node2D" parent="."]
 
-[node name="Torch10" parent="SecondFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(677, -992.5)
-
-[node name="Torch11" parent="SecondFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(417, -992.5)
-
-[node name="Torch12" parent="SecondFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(184, -992.5)
-
-[node name="Torch13" parent="SecondFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(-19, -992.5)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="SecondFloor" groups=["Collide"]]
 
 [node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="SecondFloor/StaticBody2D"]
@@ -2018,15 +2085,6 @@ polygon = PackedVector2Array(-133, -1234, -53, -1234, -53, -1202, 59, -1202, 59,
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="SecondFloor/StaticBody2D13"]
 occluder = SubResource("OccluderPolygon2D_2mcoj")
-
-[node name="Torch15" parent="SecondFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(980, -1240)
-
-[node name="Torch16" parent="SecondFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(504, -1582)
-
-[node name="Torch17" parent="SecondFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(892, -1787)
 
 [node name="Vase" parent="SecondFloor" instance=ExtResource("7_1ooku")]
 position = Vector2(506, -952)
@@ -2215,18 +2273,6 @@ polygon = PackedVector2Array(986, -3010, 986, -2978, 1082, -2978, 1082, -3010)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="ThirdFloor/StaticBody2D20"]
 occluder = SubResource("OccluderPolygon2D_rslvh")
 
-[node name="Torch16" parent="ThirdFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(358, -1975)
-
-[node name="Torch17" parent="ThirdFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(227, -1822)
-
-[node name="Torch22" parent="ThirdFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(151, -2684.5)
-
-[node name="Torch20" parent="ThirdFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(475, -2815.5)
-
 [node name="FourthFloor" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="FourthFloor" groups=["Collide"]]
@@ -2334,39 +2380,6 @@ polygon = PackedVector2Array(234, -4258, 234, -4226, 698, -4226, 698, -4258)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="FourthFloor/StaticBody2D12"]
 occluder = SubResource("OccluderPolygon2D_4hbhw")
-
-[node name="Torch10" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(649, -4299)
-
-[node name="Torch11" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(293, -4299)
-
-[node name="Torch12" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(392, -4299)
-
-[node name="Torch13" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(562, -4299)
-
-[node name="Torch14" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(326, -3187)
-
-[node name="Torch15" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(193, -3187)
-
-[node name="Torch16" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(56, -3187)
-
-[node name="Torch17" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(-80, -3187)
-
-[node name="Torch18" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(435, -3537)
-
-[node name="Torch19" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(610, -3770)
-
-[node name="Torch20" parent="FourthFloor" instance=ExtResource("8_cv2l4")]
-position = Vector2(163, -3932)
 
 [node name="Area2D" type="Area2D" parent="FourthFloor"]
 script = ExtResource("7_ex8q0")
