@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dp26prrnf405" path="res://Sounds/expansion.ogg" id="9_3lh06"]
 [ext_resource type="PackedScene" uid="uid://5ibnovpeoh58" path="res://scenes/window.tscn" id="9_4o062"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6y6u"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0lyd"]
 texture = ExtResource("3_d376o")
 0:0/0 = 0
 1:0/0 = 0
@@ -753,7 +753,7 @@ texture = ExtResource("3_d376o")
 30:24/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0l8eo"]
-sources/0 = SubResource("TileSetAtlasSource_f6y6u")
+sources/0 = SubResource("TileSetAtlasSource_l0lyd")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2ilnm"]
 polygon = PackedVector2Array(1082, 457, 667, 458, 667, 467, 1082, 467)
